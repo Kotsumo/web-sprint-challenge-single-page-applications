@@ -35,7 +35,7 @@ const App = () => {
   const getOrder = () => {}
 
   const postNewOrder = newOrder => {
-    axios.post('https://reqres.in/', newOrder)
+    axios.post('https://reqres.in/api/orders', newOrder)
     .then(res => {
       setOrders([res.data, ...orders])
     })
@@ -88,6 +88,7 @@ const App = () => {
       <Form
         values={formValues}
         change={inputChange}
+        submit={formSubmit}
         disabled={disabled}
         errors={formErrors}
       />

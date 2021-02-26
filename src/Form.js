@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Form(props) {
+    
     const {
         values,
         change,
@@ -24,8 +25,6 @@ export default function Form(props) {
         <form className='form container' onSubmit={onSubmit}>
             <div className='form-group submit'>
                 <h2>Pizza Order</h2>
-
-                <button disabled={disabled}>submit</button>
                 
                 <label>Name
                     <input
@@ -34,7 +33,7 @@ export default function Form(props) {
                         onChange={onChange}
                         value={values.name}
                         placeholder='Enter your name...'
-                        maxLength='10'
+                        maxLength='15'
                     />
                 </label>
 
@@ -47,40 +46,42 @@ export default function Form(props) {
                         <option value='XL'>X-Large</option>
                     </select>
                 </label>
-
+                {/* Realized way too late that radio buttons would have worked better.
+                Could have more easily made only one topping choice available.
+                Will fix in future updates.*/}
                 <label>cheese
                     <input
-                        type='checkbox'
-                        name='cheese'
                         onChange={onChange}
                         checked={values.cheese}
+                        name='cheese'
+                        type='checkbox'
                     />
                 </label>
 
                 <label>pepperoni
                     <input
-                        type='checkbox'
-                        name='pepperoni'
                         onChange={onChange}
-                        checked={values.pepperoni}
+                        checked={values.pepperoni}                     
+                        name='pepperoni'
+                        type='checkbox'
                     />
                 </label>
 
                 <label>supreme
                     <input
-                        type='checkbox'
-                        name='supreme'
                         onChange={onChange}
                         checked={values.supreme}
+                        name='supreme'
+                        type='checkbox'
                     />
                 </label>
 
                 <label>hawaiian
                     <input
-                        type='checkbox'
-                        name='hawaiian'
                         onChange={onChange}
                         checked={values.hawaiian}
+                        name='hawaiian'
+                        type='checkbox'
                     />
                 </label>
 
@@ -94,6 +95,7 @@ export default function Form(props) {
                         maxLength='50'
                     />
                 </label>
+                <button disabled={disabled}>order</button>
             </div>
         </form>
     )

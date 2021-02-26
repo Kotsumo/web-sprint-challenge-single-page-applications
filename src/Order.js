@@ -8,7 +8,9 @@ function Order({details}) {
     return (
         <div className='user container'>
             <h2>{details.name}</h2>
-            
+            <p>Size: {details.size}</p>
+            <p>Toppings: {details.topping}</p>
+            <p>Special Instructions: {details.specIns}</p>
         </div>
     )
 }
