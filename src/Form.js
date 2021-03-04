@@ -1,15 +1,13 @@
 import React from 'react'
 
 export default function Form(props) {
-    
     const {
         values,
         change,
         submit,
-        disabled
+        disabled,
     } = props
 
-    
     const onSubmit = evt => {
         evt.preventDefault()
         submit()
@@ -49,7 +47,7 @@ export default function Form(props) {
                 {/* Realized way too late that radio buttons would have worked better.
                 Could have more easily made only one topping choice available.
                 Will fix in future updates.*/}
-                <label>cheese
+                {/* <label>cheese
                     <input
                         onChange={onChange}
                         checked={values.cheese}
@@ -83,6 +81,46 @@ export default function Form(props) {
                         name='hawaiian'
                         type='checkbox'
                     />
+                </label> */}
+
+                <label>Cheese
+                    <input 
+                        value='cheese'
+                        onChange={onChange}
+                        checked={values.topping === 'cheese'}
+                        name='topping'
+                        type='radio'
+                    />
+                </label>
+
+                <label>Pepperoni
+                    <input 
+                        value='pepperoni'
+                        onChange={onChange}
+                        checked={values.topping === 'pepperoni'}
+                        name='topping'
+                        type='radio'
+                    />
+                </label>
+                
+                <label>Supreme
+                    <input 
+                        value='supreme'
+                        onChange={onChange}
+                        checked={values.topping === 'supreme'}
+                        name='topping'
+                        type='radio'
+                    />
+                </label>
+                
+                <label>Hawaiian
+                    <input 
+                        value='hawaiian'
+                        onChange={onChange}
+                        checked={values.topping === 'hawaiian'}
+                        name='topping'
+                        type='radio'
+                    />
                 </label>
 
                 <label>SpecialInstruction
@@ -95,7 +133,7 @@ export default function Form(props) {
                         maxLength='50'
                     />
                 </label>
-                <button disabled={disabled}>order</button>
+                <button id='submitBtn' disabled={disabled}>order</button>
             </div>
         </form>
     )
